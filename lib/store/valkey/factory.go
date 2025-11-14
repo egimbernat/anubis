@@ -11,6 +11,10 @@ import (
 	valkey "github.com/redis/go-redis/v9"
 )
 
+func init() {
+	store.Register("valkey", Factory{})
+}
+
 // Errors kept as-is so other code/tests still pass.
 var (
 	ErrNoURL  = errors.New("valkey.Config: no URL defined")
